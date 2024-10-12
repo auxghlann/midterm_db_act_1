@@ -70,6 +70,7 @@
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(109, 20);
             this.txtKeyword.TabIndex = 0;
+            this.txtKeyword.TextChanged += new System.EventHandler(this.txtKeyword_TextChanged);
             // 
             // cboBrand
             // 
@@ -114,6 +115,7 @@
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnReset
             // 

@@ -30,6 +30,74 @@ namespace midterm_db_act_1
 
         // Database Query functions
 
+
+        public void search_by_keyword(string keyword, string brand, DataGridView grdResult)
+        {
+            string query = "SELECT id as ID, model as MODEL, brand as BRAND, year as [YEAR] from [car] WHERE model=? and brand=?";
+
+            if (this.Connection.State != System.Data.ConnectionState.Open)
+            {
+                this.Connection.Open();
+            }
+
+            using (command = new OleDbCommand(query, this.Connection))
+            {
+                command.Parameters.AddWithValue("?", keyword);
+                command.Parameters.AddWithValue("?", brand);
+
+                using (adapter = new OleDbDataAdapter(command))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        adapter.Fill(dt);
+                        grdResult.DataSource = dt;
+
+                        // Hide the ID column after binding (optional)
+                        if (grdResult.Columns.Contains("ID")) // Check if column exists
+                        {
+                            grdResult.Columns["ID"].Visible = false;
+                        }
+
+                        this.Connection.Close();
+                    }
+                }
+            }
+            
+        }
+
+
+        public void search_by_keyword_change(string keyword, string brand, DataGridView grdResult)
+        {
+            string query = "SELECT id as ID, model as MODEL, brand as BRAND, year as [YEAR] from [car] WHERE model like ? and brand=?";
+
+            if (this.Connection.State != System.Data.ConnectionState.Open)
+            {
+                this.Connection.Open();
+            }
+
+            using (command = new OleDbCommand(query, this.Connection))
+            {
+                command.Parameters.AddWithValue("?", keyword + "%");
+                command.Parameters.AddWithValue("?", brand);
+
+                using (adapter = new OleDbDataAdapter(command))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        adapter.Fill(dt);
+                        grdResult.DataSource = dt;
+
+                        // Hide the ID column after binding (optional)
+                        if (grdResult.Columns.Contains("ID")) // Check if column exists
+                        {
+                            grdResult.Columns["ID"].Visible = false;
+                        }
+
+                        this.Connection.Close();
+                    }
+                }
+            }
+        }
         public void view_cars(DataGridView grdResult)
         {
             string query = "SELECT id as ID, model as MODEL, brand as BRAND, year as [YEAR] from [car]";

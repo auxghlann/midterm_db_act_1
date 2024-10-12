@@ -159,6 +159,40 @@ namespace midterm_db_act_1
 
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(db_file_path))
+            {
+                MessageBox.Show("No data to view. Import a database first", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtKeyword.Text) || string.IsNullOrEmpty(cboBrand.Text))
+            {
+                MessageBox.Show("Keyword and Brand must not be empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            _db.search_by_keyword(txtKeyword.Text, cboBrand.Text, grdResult);
+        }
+
+        private void txtKeyword_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(db_file_path))
+            {
+                MessageBox.Show("No data to view. Import a database first", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(cboBrand.Text))
+            {
+                MessageBox.Show("Brand must not be empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            _db.search_by_keyword_change(txtKeyword.Text, cboBrand.Text, grdResult);
+        }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(db_file_path))
