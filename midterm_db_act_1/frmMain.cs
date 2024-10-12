@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace midterm_db_act_1
 {
@@ -24,7 +25,8 @@ namespace midterm_db_act_1
         private string brands_file_path = "";
         private Database _db;
 
-        
+        private string selected_model, selected_brand = "";
+        private int selected_id, selected_year = 0;
 
         // Helper functions
 
@@ -81,7 +83,26 @@ namespace midterm_db_act_1
         // DataGridView
         private void grdResult_SelectionChanged(object sender, EventArgs e)
         {
+            if (grdResult.SelectedRows.Count > 0)
+            {
 
+                var selected_row = grdResult.SelectedRows[0].DataBoundItem as DataRowView;
+
+                if (selected_row != null)
+                {
+
+                    this.selected_id = Convert.ToInt32(selected_row["id"]);
+                    this.selected_model = selected_row["model"].ToString();
+                    this.selected_brand = selected_row["brand"].ToString();
+                    this.selected_year = Convert.ToInt32(selected_row["year"]);
+
+                    txtNewID.Text = selected_id.ToString();
+                    txtNewModel.Text = selected_model;
+                    cboNewBrand.Text = selected_brand;
+                    txtNewYear.Text = selected_year.ToString();
+                }
+
+            }
         }
 
         // Buttons
@@ -120,6 +141,22 @@ namespace midterm_db_act_1
             txtNewModel.Clear();
             txtNewYear.Clear();
             cboNewBrand.SelectedIndex = -1;
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtKeyword.Clear();
+            cboBrand.SelectedIndex = -1;
+            grdResult.DataSource = null;
+
+            txtNewID.Clear();
+            txtNewModel.Clear();
+            cboNewBrand.SelectedIndex = -1;
+            txtNewYear.Clear();
+
+            txtToDel_ID.Clear();
+            cboToDelBrand.SelectedIndex = -1;
+
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

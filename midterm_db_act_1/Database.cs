@@ -32,7 +32,7 @@ namespace midterm_db_act_1
 
         public void view_cars(DataGridView grdResult)
         {
-            string query = "SELECT model as MODEL, brand as BRAND, year as [YEAR] from [car]";
+            string query = "SELECT id as ID, model as MODEL, brand as BRAND, year as [YEAR] from [car]";
 
             if (this.Connection.State != System.Data.ConnectionState.Open)
             {
@@ -45,6 +45,12 @@ namespace midterm_db_act_1
                 {
                     adapter.Fill(dt);
                     grdResult.DataSource = dt;
+
+                    // Hide the ID column after binding (optional)
+                    if (grdResult.Columns.Contains("ID")) // Check if column exists
+                    {
+                        grdResult.Columns["ID"].Visible = false;
+                    }
 
                     this.Connection.Close();
                 }
