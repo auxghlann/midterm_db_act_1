@@ -37,8 +37,9 @@ namespace midterm_db_act_1
             foreach (string line in lines)
             {
                 cboBrand.Items.Add(line);
-                cboNewBrand.Items.Add(line);
+                cboToAddBrand.Items.Add(line);
                 cboToDelBrand.Items.Add(line);
+                cboUpdateBrand.Items.Add(line);
             }
 
         }
@@ -96,10 +97,10 @@ namespace midterm_db_act_1
                     this.selected_brand = selected_row["brand"].ToString();
                     this.selected_year = Convert.ToInt32(selected_row["year"]);
 
-                    txtNewID.Text = selected_id.ToString();
-                    txtNewModel.Text = selected_model;
-                    cboNewBrand.Text = selected_brand;
-                    txtNewYear.Text = selected_year.ToString();
+                    txtUpdateID.Text = selected_id.ToString();
+                    txtUpdateModel.Text = selected_model;
+                    cboUpdateBrand.Text = selected_brand;
+                    txtUpdateYear.Text = selected_year.ToString();
                 }
 
             }
@@ -128,19 +129,19 @@ namespace midterm_db_act_1
             }
 
 
-            if (string.IsNullOrEmpty(txtNewID.Text) || string.IsNullOrEmpty(txtNewModel.Text) ||
-                string.IsNullOrEmpty(txtNewYear.Text) || string.IsNullOrEmpty(cboNewBrand.Text))
+            if (string.IsNullOrEmpty(txtToAdd_ID.Text) || string.IsNullOrEmpty(txtToAddModel.Text) ||
+                string.IsNullOrEmpty(txtToAddYear.Text) || string.IsNullOrEmpty(cboToAddBrand.Text))
             {
                 MessageBox.Show("Input fields should not be empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            _db.insert_car(Convert.ToInt32(txtNewID.Text), txtNewModel.Text, cboNewBrand.Text, Convert.ToInt32(txtNewYear.Text));
+            _db.insert_car(Convert.ToInt32(txtToAdd_ID.Text), txtToAddModel.Text, cboToAddBrand.Text, Convert.ToInt32(txtToAddYear.Text));
 
-            txtNewID.Clear();
-            txtNewModel.Clear();
-            txtNewYear.Clear();
-            cboNewBrand.SelectedIndex = -1;
+            txtToAdd_ID.Clear();
+            txtToAddModel.Clear();
+            txtToAddYear.Clear();
+            cboToAddBrand.SelectedIndex = -1;
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -149,10 +150,15 @@ namespace midterm_db_act_1
             cboBrand.SelectedIndex = -1;
             grdResult.DataSource = null;
 
-            txtNewID.Clear();
-            txtNewModel.Clear();
-            cboNewBrand.SelectedIndex = -1;
-            txtNewYear.Clear();
+            txtToAdd_ID.Clear();
+            txtToAddModel.Clear();
+            cboToAddBrand.SelectedIndex = -1;
+            txtToAddYear.Clear();
+
+            txtUpdateID.Clear();
+            txtUpdateModel.Clear();
+            cboUpdateBrand.SelectedIndex = -1;
+            txtUpdateYear.Clear();
 
             txtToDel_ID.Clear();
             cboToDelBrand.SelectedIndex = -1;
@@ -202,14 +208,14 @@ namespace midterm_db_act_1
             }
 
 
-            if (string.IsNullOrEmpty(txtNewID.Text) || string.IsNullOrEmpty(txtNewModel.Text) ||
-                string.IsNullOrEmpty(txtNewYear.Text) || string.IsNullOrEmpty(cboNewBrand.Text))
+            if (string.IsNullOrEmpty(txtUpdateID.Text) || string.IsNullOrEmpty(txtUpdateModel.Text) ||
+                string.IsNullOrEmpty(txtUpdateYear.Text) || string.IsNullOrEmpty(cboUpdateBrand.Text))
             {
                 MessageBox.Show("Input fields should not be empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            _db.update_car(Convert.ToInt32(txtNewID.Text), txtNewModel.Text, cboNewBrand.Text, Convert.ToInt32(txtNewYear.Text));
+            _db.update_car(Convert.ToInt32(txtUpdateID.Text), txtUpdateModel.Text, cboUpdateBrand.Text, Convert.ToInt32(txtUpdateYear.Text));
 
         }
 

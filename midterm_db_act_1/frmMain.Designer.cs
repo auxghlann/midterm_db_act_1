@@ -40,12 +40,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
-            this.cboNewBrand = new System.Windows.Forms.ComboBox();
-            this.txtNewYear = new System.Windows.Forms.TextBox();
-            this.txtNewModel = new System.Windows.Forms.TextBox();
-            this.txtNewID = new System.Windows.Forms.TextBox();
+            this.cboToAddBrand = new System.Windows.Forms.ComboBox();
+            this.txtToAddYear = new System.Windows.Forms.TextBox();
+            this.txtToAddModel = new System.Windows.Forms.TextBox();
+            this.txtToAdd_ID = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -58,10 +57,21 @@
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripImportData = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripCarBrands = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.cboUpdateBrand = new System.Windows.Forms.ComboBox();
+            this.txtUpdateYear = new System.Windows.Forms.TextBox();
+            this.txtUpdateModel = new System.Windows.Forms.TextBox();
+            this.txtUpdateID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdResult)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtKeyword
@@ -143,18 +153,17 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.btnInsert);
-            this.groupBox1.Controls.Add(this.cboNewBrand);
-            this.groupBox1.Controls.Add(this.txtNewYear);
-            this.groupBox1.Controls.Add(this.txtNewModel);
-            this.groupBox1.Controls.Add(this.txtNewID);
+            this.groupBox1.Controls.Add(this.cboToAddBrand);
+            this.groupBox1.Controls.Add(this.txtToAddYear);
+            this.groupBox1.Controls.Add(this.txtToAddModel);
+            this.groupBox1.Controls.Add(this.txtToAdd_ID);
             this.groupBox1.Location = new System.Drawing.Point(561, 54);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(255, 246);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Insert and Update";
+            this.groupBox1.Text = "Insert";
             // 
             // label7
             // 
@@ -192,19 +201,9 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "ID";
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(141, 195);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 37);
-            this.btnUpdate.TabIndex = 12;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(48, 195);
+            this.btnInsert.Location = new System.Drawing.Point(90, 195);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 37);
             this.btnInsert.TabIndex = 9;
@@ -212,35 +211,35 @@
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
-            // cboNewBrand
+            // cboToAddBrand
             // 
-            this.cboNewBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboNewBrand.FormattingEnabled = true;
-            this.cboNewBrand.Location = new System.Drawing.Point(21, 121);
-            this.cboNewBrand.Name = "cboNewBrand";
-            this.cboNewBrand.Size = new System.Drawing.Size(211, 21);
-            this.cboNewBrand.TabIndex = 9;
+            this.cboToAddBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboToAddBrand.FormattingEnabled = true;
+            this.cboToAddBrand.Location = new System.Drawing.Point(21, 121);
+            this.cboToAddBrand.Name = "cboToAddBrand";
+            this.cboToAddBrand.Size = new System.Drawing.Size(211, 21);
+            this.cboToAddBrand.TabIndex = 9;
             // 
-            // txtNewYear
+            // txtToAddYear
             // 
-            this.txtNewYear.Location = new System.Drawing.Point(21, 162);
-            this.txtNewYear.Name = "txtNewYear";
-            this.txtNewYear.Size = new System.Drawing.Size(211, 20);
-            this.txtNewYear.TabIndex = 11;
+            this.txtToAddYear.Location = new System.Drawing.Point(21, 162);
+            this.txtToAddYear.Name = "txtToAddYear";
+            this.txtToAddYear.Size = new System.Drawing.Size(211, 20);
+            this.txtToAddYear.TabIndex = 11;
             // 
-            // txtNewModel
+            // txtToAddModel
             // 
-            this.txtNewModel.Location = new System.Drawing.Point(21, 80);
-            this.txtNewModel.Name = "txtNewModel";
-            this.txtNewModel.Size = new System.Drawing.Size(211, 20);
-            this.txtNewModel.TabIndex = 10;
+            this.txtToAddModel.Location = new System.Drawing.Point(21, 80);
+            this.txtToAddModel.Name = "txtToAddModel";
+            this.txtToAddModel.Size = new System.Drawing.Size(211, 20);
+            this.txtToAddModel.TabIndex = 10;
             // 
-            // txtNewID
+            // txtToAdd_ID
             // 
-            this.txtNewID.Location = new System.Drawing.Point(21, 41);
-            this.txtNewID.Name = "txtNewID";
-            this.txtNewID.Size = new System.Drawing.Size(211, 20);
-            this.txtNewID.TabIndex = 9;
+            this.txtToAdd_ID.Location = new System.Drawing.Point(21, 41);
+            this.txtToAdd_ID.Name = "txtToAdd_ID";
+            this.txtToAdd_ID.Size = new System.Drawing.Size(211, 20);
+            this.txtToAdd_ID.TabIndex = 9;
             // 
             // groupBox2
             // 
@@ -325,7 +324,7 @@
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(841, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1147, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -352,11 +351,106 @@
             this.toolStripCarBrands.Text = "Import Car Brands";
             this.toolStripCarBrands.Click += new System.EventHandler(this.toolStripCarBrands_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.btnUpdate);
+            this.groupBox3.Controls.Add(this.cboUpdateBrand);
+            this.groupBox3.Controls.Add(this.txtUpdateYear);
+            this.groupBox3.Controls.Add(this.txtUpdateModel);
+            this.groupBox3.Controls.Add(this.txtUpdateID);
+            this.groupBox3.Location = new System.Drawing.Point(845, 54);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(255, 246);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Update";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(18, 146);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(29, 13);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Year";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(18, 105);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(35, 13);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Brand";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(18, 64);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(36, 13);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "Model";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(18, 25);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(18, 13);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "ID";
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(89, 195);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 37);
+            this.btnUpdate.TabIndex = 12;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // cboUpdateBrand
+            // 
+            this.cboUpdateBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboUpdateBrand.FormattingEnabled = true;
+            this.cboUpdateBrand.Location = new System.Drawing.Point(21, 121);
+            this.cboUpdateBrand.Name = "cboUpdateBrand";
+            this.cboUpdateBrand.Size = new System.Drawing.Size(211, 21);
+            this.cboUpdateBrand.TabIndex = 9;
+            // 
+            // txtUpdateYear
+            // 
+            this.txtUpdateYear.Location = new System.Drawing.Point(21, 162);
+            this.txtUpdateYear.Name = "txtUpdateYear";
+            this.txtUpdateYear.Size = new System.Drawing.Size(211, 20);
+            this.txtUpdateYear.TabIndex = 11;
+            // 
+            // txtUpdateModel
+            // 
+            this.txtUpdateModel.Location = new System.Drawing.Point(21, 80);
+            this.txtUpdateModel.Name = "txtUpdateModel";
+            this.txtUpdateModel.Size = new System.Drawing.Size(211, 20);
+            this.txtUpdateModel.TabIndex = 10;
+            // 
+            // txtUpdateID
+            // 
+            this.txtUpdateID.Location = new System.Drawing.Point(21, 41);
+            this.txtUpdateID.Name = "txtUpdateID";
+            this.txtUpdateID.Size = new System.Drawing.Size(211, 20);
+            this.txtUpdateID.TabIndex = 9;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 507);
+            this.ClientSize = new System.Drawing.Size(1147, 517);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox2);
@@ -380,6 +474,8 @@
             this.groupBox2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,12 +492,11 @@
         private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnInsert;
-        private System.Windows.Forms.ComboBox cboNewBrand;
-        private System.Windows.Forms.TextBox txtNewYear;
-        private System.Windows.Forms.TextBox txtNewModel;
-        private System.Windows.Forms.TextBox txtNewID;
+        private System.Windows.Forms.ComboBox cboToAddBrand;
+        private System.Windows.Forms.TextBox txtToAddYear;
+        private System.Windows.Forms.TextBox txtToAddModel;
+        private System.Windows.Forms.TextBox txtToAdd_ID;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ComboBox cboToDelBrand;
         private System.Windows.Forms.TextBox txtToDel_ID;
@@ -417,6 +512,16 @@
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripImportData;
         private System.Windows.Forms.ToolStripMenuItem toolStripCarBrands;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.ComboBox cboUpdateBrand;
+        private System.Windows.Forms.TextBox txtUpdateYear;
+        private System.Windows.Forms.TextBox txtUpdateModel;
+        private System.Windows.Forms.TextBox txtUpdateID;
     }
 }
 
