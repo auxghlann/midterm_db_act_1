@@ -18,6 +18,7 @@ namespace midterm_db_act_1
         private OleDbConnection connection;
         private OleDbDataAdapter adapter;
         private OleDbCommand command;
+        private OleDbDataReader reader;
 
 
         public Database(string db_file_path)
@@ -28,7 +29,37 @@ namespace midterm_db_act_1
 
         public OleDbConnection Connection { get { return connection; } }
 
+        
         // Database Query functions
+        
+        public List<string> get_all_unique_brands()
+        {
+            List<string> result = new List<string>();
+
+            string query = "SELECT DISTINCT brand from [car] ORDER BY brand ASC";
+
+            if (this.Connection.State != ConnectionState.Open)
+            {
+                this.Connection.Open();
+            }
+
+            using (command = new OleDbCommand(query, this.Connection))
+            {
+                reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while(reader.Read())
+                    {
+                        result.Add(reader.GetString(0));
+                    }
+                }
+
+                this.Connection.Close();
+            }
+
+            return result;
+        }
 
 
         public void search_by_keyword(string keyword, string brand, DataGridView grdResult)
