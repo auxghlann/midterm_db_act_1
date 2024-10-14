@@ -56,7 +56,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripImportData = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripCarBrands = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -331,8 +330,7 @@
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripImportData,
-            this.toolStripCarBrands});
+            this.toolStripImportData});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
@@ -340,16 +338,9 @@
             // toolStripImportData
             // 
             this.toolStripImportData.Name = "toolStripImportData";
-            this.toolStripImportData.Size = new System.Drawing.Size(170, 22);
+            this.toolStripImportData.Size = new System.Drawing.Size(180, 22);
             this.toolStripImportData.Text = "Import Data";
             this.toolStripImportData.Click += new System.EventHandler(this.toolStripImportData_Click);
-            // 
-            // toolStripCarBrands
-            // 
-            this.toolStripCarBrands.Name = "toolStripCarBrands";
-            this.toolStripCarBrands.Size = new System.Drawing.Size(170, 22);
-            this.toolStripCarBrands.Text = "Import Car Brands";
-            this.toolStripCarBrands.Click += new System.EventHandler(this.toolStripCarBrands_Click);
             // 
             // groupBox3
             // 
@@ -511,7 +502,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripImportData;
-        private System.Windows.Forms.ToolStripMenuItem toolStripCarBrands;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
