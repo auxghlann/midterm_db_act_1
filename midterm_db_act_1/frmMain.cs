@@ -30,16 +30,15 @@ namespace midterm_db_act_1
 
         // Helper functions
 
-        public void InitializeBrandsCBO(string brands_file_path)
+        public void InitializeBrandsCBO(List<string> brands)
         {
-            string[] lines = File.ReadAllLines(brands_file_path);
 
-            foreach (string line in lines)
+            foreach (string brand in brands)
             {
-                cboBrand.Items.Add(line);
-                cboToAddBrand.Items.Add(line);
-                cboToDelBrand.Items.Add(line);
-                cboUpdateBrand.Items.Add(line);
+                cboBrand.Items.Add(brand);
+                cboToAddBrand.Items.Add(brand);
+                cboToDelBrand.Items.Add(brand);
+                cboUpdateBrand.Items.Add(brand);
             }
 
         }
@@ -53,32 +52,31 @@ namespace midterm_db_act_1
         {
 
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "*.mdb|";
+            ofd.Filter = "MDB Files (*.mdb)|*.mdb";
 
             if (DialogResult.OK == ofd.ShowDialog())
             {
                 this.db_file_path = ofd.FileName;
                 this._db = new Database(db_file_path);
-                MessageBox.Show("Data Successfully Imported", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-
-        }
-
-
-        private void toolStripCarBrands_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "*.txt|";
-
-            if (DialogResult.OK == ofd.ShowDialog())
-            {
-                this.brands_file_path = ofd.FileName;
-                this._db = new Database(db_file_path);
-                InitializeBrandsCBO(brands_file_path);
-                MessageBox.Show("Car Brands Successfully Imported", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                InitializeBrandsCBO(this._db.get_all_unique_brands());
+                MessageBox.Show("Data Imported", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+
+        //private void toolStripCarBrands_Click(object sender, EventArgs e)
+        //{
+        //    OpenFileDialog ofd = new OpenFileDialog();
+        //    ofd.Filter = "*.txt|";
+
+        //    if (DialogResult.OK == ofd.ShowDialog())
+        //    {
+        //        this.brands_file_path = ofd.FileName;
+        //        this._db = new Database(db_file_path);
+        //        InitializeBrandsCBO(brands_file_path);
+        //        MessageBox.Show("Car Brands Successfully Imported", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    }
+        //}
 
 
         // DataGridView
